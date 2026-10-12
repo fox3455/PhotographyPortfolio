@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Fox &amp; Event Photography</title>
+<meta name="description" content="Event photography from Halo Championship Series, Comic-Con, and DreamHack — shot by [Your Name].">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Space+Grotesk:wght@500;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="css/style.css">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Crect width='100' height='100' rx='20' fill='%230a0a0f'/%3E%3Crect x='20' y='35' width='60' height='42' rx='6' fill='none' stroke='%2322e6c8' stroke-width='6'/%3E%3Ccircle cx='50' cy='56' r='13' fill='none' stroke='%237c5cff' stroke-width='6'/%3E%3Crect x='38' y='26' width='24' height='10' rx='3' fill='%2322e6c8'/%3E%3C/svg%3E">
+</head>
+<body>
+
+<header class="site-header">
+  <nav class="nav container">
+    <a href="index.html" class="brand">Caramon "Fox" Stanley<span>.</span></a>
+    <button class="nav-toggle" aria-label="Toggle menu"><span></span><span></span><span></span></button>
+    <ul class="nav-links">
+      <li><a href="index.html" class="active">Home</a></li>
+      <li><a href="gallery.html">Gallery</a></li>
+      <li><a href="about.html">About &amp; Contact</a></li>
+    </ul>
+  </nav>
+</header>
+
+<main>
+  <section class="hero">
+    <div class="container">
+      <span class="eyebrow">Event &amp; Esports Photography</span>
+      <h1>Capturing the moments that make <span class="accent">competition</span> unforgettable.</h1>
+      <p>I'm Caramon "Fox" Stanley, an event videographer and photographer covering Halo Championship Series, Comic-Con, and DreamHack; from grand finals to the crowd that makes them electric.</p>
+      <div class="hero-actions">
+        <a href="gallery.html" class="btn btn-primary">View Gallery</a>
+        <a href="about.html" class="btn">Get In Touch</a>
+      </div>
+    </div>
+  </section>
+
+  <section class="featured">
+    <div class="container">
+      <div class="section-heading reveal">
+        <span class="eyebrow">Selected Work</span>
+        <h2>Three shots I'm proudest of</h2>
+        <p>A quick look before you dive into the full gallery.</p>
+      </div>
+
+      <div class="carousel reveal" data-carousel>
+        <div class="carousel-track">
+
+          <div class="carousel-slide">
+            <img src="images/featured/featured-1.jpg" alt="Featured photo 1" onerror="handleImgError(this)">
+            <div class="carousel-caption">
+              <div class="cap-title">[Caption for your first standout shot]</div>
+              <div class="cap-sub">[Event name — location, year]</div>
+            </div>
+          </div>
+
+          <div class="carousel-slide">
+            <img src="images/featured/featured-2.jpg" alt="Featured photo 2" onerror="handleImgError(this)">
+            <div class="carousel-caption">
+              <div class="cap-title">[Caption for your second standout shot]</div>
+              <div class="cap-sub">[Event name — location, year]</div>
+            </div>
+          </div>
+
+          <div class="carousel-slide">
+            <img src="images/featured/featured-3.jpg" alt="Featured photo 3" onerror="handleImgError(this)">
+            <div class="carousel-caption">
+              <div class="cap-title">[Caption for your third standout shot]</div>
+              <div class="cap-sub">[Event name — location, year]</div>
+            </div>
+          </div>
+
+        </div>
+
+        <button class="carousel-arrow prev" aria-label="Previous slide">&#8249;</button>
+        <button class="carousel-arrow next" aria-label="Next slide">&#8250;</button>
+        <div class="carousel-dots"></div>
+      </div>
+    </div>
+  </section>
+
+  <section class="highlights">
+    <div class="container">
+      <div class="highlight-grid">
+        <a class="highlight-card reveal" href="gallery.html#hcs">
+          <span class="tag">Esports</span>
+          <h3>Halo Championship Series</h3>
+          <p>Stage action, crowd energy, and the moments between rounds across multiple HCS events.</p>
+        </a>
+        <a class="highlight-card reveal" href="gallery.html#comiccon">
+          <span class="tag">Community</span>
+          <h3>Comic-Con</h3>
+          <p>Cosplay portraits, show-floor candids, and the culture around the con.</p>
+        </a>
+        <a class="highlight-card reveal" href="gallery.html#dreamhack">
+          <span class="tag">Esports &amp; LAN</span>
+          <h3>DreamHack</h3>
+          <p>Arena-scale coverage of one of the biggest LAN events of the year.</p>
+        </a>
+      </div>
+    </div>
+  </section>
+</main>
+
+<footer class="site-footer">
+  <div class="container">
+    &copy; <span id="year"></span> Caramon "Fox" Photography · <a href="about.html">Contact</a>
+  </div>
+</footer>
+
+<script>document.getElementById('year').textContent = new Date().getFullYear();</script>
+<script src="js/main.js"></script>
+</body>
+</html>

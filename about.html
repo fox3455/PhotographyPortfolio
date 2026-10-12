@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>About — Caramon "Fox" Photography</title>
+<meta name="description" content="About Caramon 'Fox' Photography, event and esports photographer, and how to get in touch.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Space+Grotesk:wght@500;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="css/style.css">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Crect width='100' height='100' rx='20' fill='%230a0a0f'/%3E%3Crect x='20' y='35' width='60' height='42' rx='6' fill='none' stroke='%2322e6c8' stroke-width='6'/%3E%3Ccircle cx='50' cy='56' r='13' fill='none' stroke='%237c5cff' stroke-width='6'/%3E%3Crect x='38' y='26' width='24' height='10' rx='3' fill='%2322e6c8'/%3E%3C/svg%3E">
+</head>
+<body>
+
+<header class="site-header">
+  <nav class="nav container">
+    <a href="index.html" class="brand">Caramon "Fox" Photography</a>
+    <button class="nav-toggle" aria-label="Toggle menu"><span></span><span></span><span></span></button>
+    <ul class="nav-links">
+      <li><a href="index.html">Home</a></li>
+      <li><a href="gallery.html">Gallery</a></li>
+      <li><a href="about.html" class="active">About &amp; Contact</a></li>
+    </ul>
+  </nav>
+</header>
+
+<main>
+  <div class="page-header container">
+    <span class="eyebrow">About</span>
+    <h1>Hi, I'm Caramon "Fox" Stanley.</h1>
+    <p>I got into event and esports photography because I love capturing the energy and emotion of competitive gaming.</p>
+  </div>
+
+  <div class="container about-layout">
+    <div class="about-portrait">
+      <img src="images/about-portrait.jpg" alt="Portrait of Caramon 'Fox'" onerror="handleImgError(this)">
+    </div>
+
+    <div class="about-body">
+      <h2>Background</h2>
+      <p>
+        I started shooting esports events in 2023 for TSS at HCS Charlotte and have since covered other major events like the Halo Championship Series, Comic-Con, and DreamHack. My work focuses on capturing the intensity of competition, the excitement of the crowd, the stories behind the players and fans, and the incredible cosplayers showing their craftsmanship and skill.
+      </p>
+
+      <h2>What I shoot</h2>
+      <ul class="about-list">
+        <li><span>Esports events</span><span>Halo Championship Series, DreamHack</span></li>
+        <li><span>Fan conventions</span><span>Comic-Con</span></li>
+        <li><span>Available for</span><span>[Editorial / event coverage / team & sponsor work]</span></li>
+      </ul>
+
+      <h2>Gear</h2>
+      <ul class="about-list">
+        <li><span>Camera bodies</span><span>[e.g. Sony A7 IV]</span></li>
+        <li><span>Lenses</span><span>[e.g. 24-70mm f/2.8, 70-200mm f/2.8]</span></li>
+        <li><span>Lighting</span><span>[e.g. off-camera flash rig for booth/stage work]</span></li>
+      </ul>
+
+      <div class="contact-box">
+        <h3>Let's work together</h3>
+        <p>Available for event coverage, press credentials, and sponsor/team collaborations.</p>
+        <div class="contact-links">
+          <a class="btn btn-primary" href="mailto:caramonstanley@gmail.com">Email Me</a>
+          <a class="btn" href="https://instagram.com/fox3455" target="_blank" rel="noopener">Instagram</a>
+          <a class="btn" href="https://twitter.com/f0x3455" target="_blank" rel="noopener">Twitter / X</a>
+        </div>
+      </div>
+    </div>
+  </div>
+</main>
+
+<footer class="site-footer">
+  <div class="container">
+    &copy; <span id="year"></span> Caramon "Fox" Photography · <a href="mailto:caramonstanley@gmail.com">caramonstanley@gmail.com</a>
+  </div>
+</footer>
+
+<script>document.getElementById('year').textContent = new Date().getFullYear();</script>
+<script src="js/main.js"></script>
+</body>
+</html>

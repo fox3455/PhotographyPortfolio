@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Gallery — Caramon "Fox" Photography</title>
+<meta name="description" content="Full event photography gallery: Halo Championship Series, Comic-Con, and DreamHack.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Space+Grotesk:wght@500;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="css/style.css">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Crect width='100' height='100' rx='20' fill='%230a0a0f'/%3E%3Crect x='20' y='35' width='60' height='42' rx='6' fill='none' stroke='%2322e6c8' stroke-width='6'/%3E%3Ccircle cx='50' cy='56' r='13' fill='none' stroke='%237c5cff' stroke-width='6'/%3E%3Crect x='38' y='26' width='24' height='10' rx='3' fill='%2322e6c8'/%3E%3C/svg%3E">
+</head>
+<body>
+
+<header class="site-header">
+  <nav class="nav container">
+    <a href="index.html" class="brand">Caramon "Fox" Photography</a>
+    <button class="nav-toggle" aria-label="Toggle menu"><span></span><span></span><span></span></button>
+    <ul class="nav-links">
+      <li><a href="index.html">Home</a></li>
+      <li><a href="gallery.html" class="active">Gallery</a></li>
+      <li><a href="about.html">About &amp; Contact</a></li>
+    </ul>
+  </nav>
+</header>
+
+<main>
+  <div class="page-header container">
+    <span class="eyebrow">Full Portfolio</span>
+    <h1>Gallery</h1>
+    <p>Browse by event, or view everything at once.</p>
+  </div>
+
+  <div class="container">
+    <div class="filters" data-filters>
+      <button class="filter-btn active" data-filter="all">All</button>
+      <button class="filter-btn" data-filter="hcs">Halo Championship Series</button>
+      <button class="filter-btn" data-filter="comiccon">Comic-Con</button>
+      <button class="filter-btn" data-filter="dreamhack">DreamHack</button>
+    </div>
+
+    <div class="gallery-grid" data-gallery-grid></div>
+  </div>
+</main>
+
+<div class="lightbox" data-lightbox>
+  <button class="lightbox-close" aria-label="Close">&times;</button>
+  <img src="" alt="">
+  <div class="lightbox-caption"></div>
+</div>
+
+<footer class="site-footer">
+  <div class="container">
+    &copy; <span id="year"></span> Caramon "Fox" Photography · <a href="about.html">Contact</a>
+  </div>
+</footer>
+
+<script>document.getElementById('year').textContent = new Date().getFullYear();</script>
+<script src="js/data.js"></script>
+<script src="js/main.js"></script>
+</body>
+</html>
