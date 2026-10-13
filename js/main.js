@@ -4,6 +4,8 @@
 // called only when the relevant markup exists on the page.
 // ---------------------------------------------------------------------------
 
+import { renderCameraInfo } from './cameraTemplate.mjs';
+
 /** Called via onerror="" on every <img> in a gallery-item/carousel-slide. */
 
 function handleImgError(img) {
@@ -15,7 +17,7 @@ function handleImgError(img) {
   const placeholder = document.createElement('div');
   placeholder.className = 'missing-placeholder';
   placeholder.innerHTML = `
-    <span class="icon">🖼️</span>
+    <span class="icon"></span>
     <span class="filename">${filename}</span>
   `;
   wrapper.prepend(placeholder);
@@ -172,4 +174,5 @@ document.addEventListener('DOMContentLoaded', () => {
   initCarousel();
   initGallery();
   initScrollReveal();
+  renderCameraInfo(['a7C II', 'Alpha A7 III'], 'Event lighting');
 });

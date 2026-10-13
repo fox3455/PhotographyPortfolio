@@ -1,0 +1,20 @@
+[
+    {
+        "Brand": "Sony",
+        "Model": "FE 28mm f/2",
+        "Focal Length": "28mm",
+        "Aperture": "f/2"
+    },
+    {
+        "Brand":"Sony",
+        "Model":"FE 35mm f/1.8",
+        "Focal Length": "35mm",
+        "Aperture": "f/1.8"
+    },
+    {
+        "Brand":"Sony",
+        "Model":"FE 85mm f/1.8",
+        "Focal Length": "85mm",
+        "Aperture": "f/1.8"
+    }
+]
