@@ -5,6 +5,8 @@
 // ---------------------------------------------------------------------------
 
 import { renderCameraInfo } from './cameraTemplate.mjs';
+import {exifTemplate} from './exifTemplate.mjs';
+import exifr from 'https://cdn.jsdelivr.net/npm/exifr@7.1.3/dist/full.esm.mjs';
 
 /** Called via onerror="" on every <img> in a gallery-item/carousel-slide. */
 
@@ -58,6 +60,7 @@ function initScrollReveal() {
 function initCarousel() {
   const root = document.querySelector('[data-carousel]');
   if (!root) return;
+  addExifOverlays(root);
 
   const track = root.querySelector('.carousel-track');
   const slides = Array.from(root.querySelectorAll('.carousel-slide'));
@@ -129,6 +132,7 @@ function initGallery() {
   `
   ).join('');
 
+  addExifOverlays(grid);
   initScrollReveal();
 
   // Filters
@@ -168,6 +172,44 @@ function initGallery() {
   lightbox.addEventListener('click', (e) => { if (e.target === lightbox) close(); });
   document.addEventListener('keydown', (e) => { if (e.key === 'Escape') close(); });
 }
+
+///-------------------------------------
+/// exif data extraction for gallery images
+///-------------------------------------
+
+const CAMERA_NAMES = { 'ILCE-7M3': 'Sony A7 III', 'ILCE-7CM2': 'Sony A7C II', 'Apple iPhone 16 Pro Max': 'iPhone 16 Pro Max' };
+const LENS_NAMES = { 'FE 35mm F1.8': 'FE 35mm f/1.8', 'Main Camera 6.765mm': 'Main camera 6.765mm', 'iPhone 16 Pro Max back triple camera 6.765mm f/1.78': 'Main camera 6.765mm' };
+
+function formatShutter(t) {
+  return t < 1 ? `1/${Math.round(1 / t)}` : `${t}s`;
+}
+
+function toExif(data) {
+  return {
+      body: CAMERA_NAMES[data.Model] ?? data.Model,
+      lens: LENS_NAMES[data.LensModel] ?? data.LensModel,
+      f: data.FNumber && Math.round(data.FNumber * 100) / 100, // 1.7799… → 1.78
+      iso: data.ISO,
+      shutter: data.ExposureTime && formatShutter(data.ExposureTime),
+  };
+}
+
+async function addExifOverlays(root) {
+    const imgs = root.querySelectorAll('.gallery-item img, .carousel-slide img');
+    await Promise.all([...imgs].map(async (img) => {
+      try {
+        const data = await exifr.parse(img.src, ['Model', 'LensModel', 'FNumber', 'ISO', 'ExposureTime']);
+        if (!data) return;
+        const frame = document.createElement('div');
+        frame.className = 'photo-frame';
+        img.before(frame);
+        frame.append(img);
+        frame.insertAdjacentHTML('beforeend', exifTemplate(toExif(data)));
+      } catch (err) {
+        console.error(`EXIF failed for ${img.src}`, err);
+      }
+    }));
+  }
 
 document.addEventListener('DOMContentLoaded', () => {
   initNavToggle();
