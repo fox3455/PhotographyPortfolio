@@ -7,6 +7,7 @@
 import { renderCameraInfo } from './cameraTemplate.mjs';
 import {exifTemplate} from './exifTemplate.mjs';
 import exifr from 'https://cdn.jsdelivr.net/npm/exifr@7.1.3/dist/full.esm.mjs';
+import { initContactForm } from './formspreeTemplate.mjs';
 
 /** Called via onerror="" on every <img> in a gallery-item/carousel-slide. */
 
@@ -217,4 +218,5 @@ document.addEventListener('DOMContentLoaded', () => {
   initGallery();
   initScrollReveal();
   renderCameraInfo(['a7C II', 'Alpha A7 III'], 'Event lighting');
+  initContactForm();
 });
