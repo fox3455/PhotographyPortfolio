@@ -1,0 +1,11 @@
+:root {
+  --color-bg: #0e0f0d;
+  --color-surface: #262b23;
+  --color-line: #6a7a5e; /* This is only for the lines, not the text */
+  --color-accent: #d98a2b;
+  --color-text: #e6e1cf;
+  --color-muted: #a7b39a;
+  --font-body: "Inter", system-ui, sans-serif;
+  --font-heading: "Oswald", sans-serif;
+  --max-width: 1200px;
+}

@@ -1,0 +1,21 @@
+.photo-frame {
+  position: relative;
+}
+
+.photo-frame img {
+  display: block;
+}
+
+.exif {
+  position: absolute;
+  left: 0rem;
+  bottom: 0rem;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+  padding: 0.25rem 0.5rem;
+  font-size: 1rem;
+  color: #fff;
+  background: rgb(0 0 0 / 0.55);
+  pointer-events: none;
+}

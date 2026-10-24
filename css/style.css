@@ -1,21 +1,7 @@
-.photo-frame {
-    position: relative;
-}
-
-.photo-frame img {
-    display: block;
-}
-
-.exif {
-    position: absolute;
-    left: 0rem;
-    bottom: 0rem;
-    display: flex;
-    flex-wrap: wrap;
-    gap: 0.5rem;
-    padding: 0.25rem 0.5rem;
-    font-size: 1rem;
-    color: #fff;
-    background: rgb(0 0 0 / 0.55); 
-    pointer-events: none; 
-}
+@import url("https://fonts.googleapis.com/css2?family=Oswald:wght@500;600&display=swap");
+@import "variables.css";
+@import "base.css";
+@import "header.css";
+@import "home.css";
+@import "gallery.css";
+@import "exif.css";

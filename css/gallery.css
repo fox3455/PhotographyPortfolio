@@ -1,0 +1,7 @@
+.lightbox {
+  display: none;
+}
+
+.lightbox.open {
+  display: flex;
+}
