@@ -5,3 +5,154 @@
 @import "home.css";
 @import "gallery.css";
 @import "exif.css";
+
+/**************************************************
+   Featured carousel
+**************************************************/
+.featured {
+  padding: 64px 0 96px;
+}
+.section-heading {
+  text-align: center;
+  max-width: 640px;
+  margin: 0 auto 48px;
+}
+.section-heading p { color: var(--color-muted); }
+
+.carousel {
+  position: relative;
+  max-width: 920px;
+  margin: 0 auto;
+  border-radius: var(--radius);
+  overflow: hidden;
+  background: var(--color-surface);
+  border: 1px solid var(--color-line);
+}
+
+.carousel-track {
+  display: flex;
+  transition: transform 500ms cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.carousel-slide {
+  min-width: 100%;
+  position: relative;
+  aspect-ratio: 16 / 10;
+}
+
+.carousel-slide img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+/**************************************************
+JS wraps each slide image in .photo-frame — make it fill the slide so
+the image covers the 16:10 box and overlays line up with the slide edges. 
+**************************************************/
+.carousel-slide .photo-frame {
+  position: absolute;
+  inset: 0;
+}
+
+/**************************************************
+Photo overlays: shared by the home carousel and the gallery lightbox.
+Caption + location bottom-left, EXIF stack bottom-right, one gradient.
+**************************************************/
+.carousel-caption,
+.lightbox-caption {
+  position: absolute;
+  left: 0; right: 0; bottom: 0;
+  /* taller top padding = longer, softer fade; right padding leaves room for EXIF */
+  padding: 72px 45% 28px 32px;
+  background: linear-gradient(to top, rgba(0,0,0,0.75), transparent);
+  color: #fff;
+}
+.cap-title {
+  font-family: var(--font-heading);
+  font-weight: 700;
+  font-size: 1.2rem;
+  margin-bottom: 4px;
+}
+.cap-sub {
+  font-size: 0.9rem;
+  color: rgba(255,255,255,0.75);
+}
+
+/**************************************************
+EXIF overlay: right-aligned stack, bottom-right, above the gradient.
+Shares the caption's bottom/right padding so both blocks sit on the same baseline. 
+**************************************************/
+.carousel-slide .exif,
+.lightbox .exif {
+  left: auto;
+  right: 0;
+  bottom: 0;
+  z-index: 1; /* paint above the caption's gradient */
+  flex-direction: column;
+  align-items: flex-end;
+  gap: 2px;
+  padding: 0 32px 28px 0;
+  background: none;
+  text-align: right;
+  font-size: 0.9rem;
+  line-height: 1.4;
+  color: rgba(255,255,255,0.75);
+}
+.carousel-slide .exif-body,
+.lightbox .exif-body {
+  font-family: var(--font-heading);
+  font-weight: 600;
+  font-size: 1.05rem;
+  color: #fff;
+}
+
+@media (max-width: 600px) {
+  .carousel-caption,
+  .lightbox-caption { padding: 56px 40% 16px 16px; }
+  .cap-title { font-size: 1rem; }
+  .carousel-slide .exif,
+  .lightbox .exif { padding: 0 16px 16px 0; font-size: 0.75rem; }
+  .carousel-slide .exif-body,
+  .lightbox .exif-body { font-size: 0.85rem; }
+}
+
+.carousel-arrow {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  width: 44px;
+  height: 44px;
+  border-radius: 50%;
+  border: 1px solid rgba(255,255,255,0.25);
+  background: rgba(10,10,15,0.5);
+  backdrop-filter: blur(6px);
+  color: #fff;
+  font-size: 1.2rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  z-index: 5;
+  transition: background var(--transition), border-color var(--transition);
+}
+.carousel-arrow:hover { background: rgba(0,0,0,0.7); border-color: var(--color-accent); }
+.carousel-arrow.prev { left: 16px; }
+.carousel-arrow.next { right: 16px; }
+
+.carousel-dots {
+  display: flex;
+  justify-content: center;
+  gap: 10px;
+  margin-top: 20px;
+}
+.carousel-dot {
+  width: 9px; height: 9px;
+  border-radius: 50%;
+  background: var(--color-line);
+  border: none;
+  cursor: pointer;
+  padding: 0;
+  transition: background var(--transition), transform var(--transition);
+}
+.carousel-dot.active { background: var(--color-accent); transform: scale(1.2); }

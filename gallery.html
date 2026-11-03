@@ -44,10 +44,16 @@
   </div>
 </main>
 
-<div class="lightbox" data-lightbox>
+<div class="lightbox" data-lightbox role="dialog" aria-modal="true" aria-label="Photo viewer">
   <button class="lightbox-close" aria-label="Close">&times;</button>
-  <img src="" alt="">
-  <div class="lightbox-caption"></div>
+  <figure class="lightbox-figure">
+    <img src="" alt="">
+    <figcaption class="lightbox-caption">
+      <div class="cap-title"></div>
+      <div class="cap-sub"></div>
+    </figcaption>
+    <div data-lightbox-exif></div>
+  </figure>
 </div>
 
 <footer class="site-footer">

@@ -1,7 +1,166 @@
-.lightbox {
-  display: none;
+/**************************************************
+ * Filters
+ **************************************************/
+.filters {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  margin: 24px 0 32px;
 }
 
-.lightbox.open {
-  display: flex;
+.filter-btn {
+  padding: 8px 16px;
+  border: 1px solid var(--color-line);
+  border-radius: 999px;
+  background: none;
+  color: var(--color-text);
+  font: inherit;
+  font-size: 0.9rem;
+  cursor: pointer;
+  transition: background var(--transition), border-color var(--transition), color var(--transition);
+}
+.filter-btn:hover { border-color: var(--color-accent); }
+.filter-btn.active {
+  background: var(--color-accent);
+  border-color: var(--color-accent);
+  color: var(--color-bg);
+}
+.filter-btn:focus-visible {
+  outline: 3px solid var(--color-accent);
+  outline-offset: 2px;
+}
+
+/**************************************************
+ * Gallery grid + tiles
+ * Tiles stay clean: caption fades in on hover/focus.
+ * Full caption + EXIF live in the lightbox.
+ **************************************************/
+.gallery-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+  gap: 16px;
+  margin-bottom: 96px;
+}
+
+.gallery-item {
+  position: relative;
+  margin: 0;
+  border-radius: var(--radius);
+  overflow: hidden;
+  background: var(--color-surface);
+}
+
+.gallery-open {
+  display: block;
+  width: 100%;
+  padding: 0;
+  border: 0;
+  background: none;
+  cursor: zoom-in;
+}
+.gallery-open:focus-visible {
+  outline: 3px solid var(--color-accent);
+  outline-offset: -3px;
+}
+
+.gallery-open img {
+  width: 100%;
+  aspect-ratio: 4 / 3;
+  object-fit: cover;
+  transition: transform 400ms ease;
+}
+
+.gallery-item figcaption {
+  position: absolute;
+  left: 0; right: 0; bottom: 0;
+  padding: 56px 16px 14px;
+  background: linear-gradient(to top, rgba(0,0,0,0.75), transparent);
+  color: #fff;
+  pointer-events: none; /* clicks go through to the button */
+  opacity: 0;
+  translate: 0 8px;
+  transition: opacity var(--transition), translate var(--transition);
+}
+.gallery-item .cap-title { font-size: 1rem; margin-bottom: 2px; }
+.gallery-item .cap-sub { font-size: 0.8rem; }
+
+.gallery-item:hover figcaption,
+.gallery-item:focus-within figcaption {
+  opacity: 1;
+  translate: 0 0;
+}
+.gallery-item:hover img,
+.gallery-item:focus-within img {
+  transform: scale(1.03);
+}
+
+/* Touch screens have no hover: show the caption under the photo instead. */
+@media (hover: none) {
+  .gallery-item figcaption {
+    position: static;
+    opacity: 1;
+    translate: none;
+    padding: 10px 12px 12px;
+    background: none;
+    color: var(--color-text);
+  }
+  .gallery-item .cap-sub { color: var(--color-muted); }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .gallery-open img,
+  .gallery-item figcaption { transition: none; }
+  .gallery-item:hover img,
+  .gallery-item:focus-within img { transform: none; }
+}
+
+/**************************************************
+ * Lightbox
+ **************************************************/
+.lightbox {
+  position: fixed;
+  inset: 0;
+  z-index: 100;
+  display: none;
+  align-items: center;
+  justify-content: center;
+  padding: 24px;
+  background: rgb(0 0 0 / 0.9);
+}
+.lightbox.open { display: flex; }
+
+/* Shrinks to the photo's size so the overlays line up with the photo's edges */
+.lightbox-figure {
+  position: relative;
+  margin: 0;
+  border-radius: var(--radius);
+  overflow: hidden;
+}
+.lightbox-figure img {
+  max-width: calc(100vw - 48px);
+  max-height: calc(100vh - 48px);
+  width: auto;
+  height: auto;
+}
+
+.lightbox-close {
+  position: absolute;
+  top: 16px;
+  right: 16px;
+  z-index: 2;
+  width: 44px;
+  height: 44px;
+  border-radius: 50%;
+  border: 1px solid rgba(255,255,255,0.25);
+  background: rgba(10,10,15,0.5);
+  color: #fff;
+  font-size: 1.6rem;
+  line-height: 1;
+  cursor: pointer;
+  transition: background var(--transition), border-color var(--transition);
+}
+.lightbox-close:hover,
+.lightbox-close:focus-visible {
+  background: rgba(0,0,0,0.7);
+  border-color: var(--color-accent);
 }

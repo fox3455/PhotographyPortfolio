@@ -8,4 +8,6 @@
   --font-body: "Inter", system-ui, sans-serif;
   --font-heading: "Oswald", sans-serif;
   --max-width: 1200px;
+  --radius: 12px;
+  --transition: 200ms ease;
 }
