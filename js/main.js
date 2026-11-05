@@ -8,6 +8,7 @@ import { renderCameraInfo } from './cameraTemplate.mjs';
 import {exifTemplate} from './exifTemplate.mjs';
 import exifr from 'https://cdn.jsdelivr.net/npm/exifr@7.1.3/dist/full.esm.mjs';
 import { initContactForm } from './formspreeTemplate.mjs';
+import { PHOTOS, CATEGORIES } from './data.mjs';
 
 /** Called via onerror="" on every <img> in a gallery-item/carousel-slide. */
 
@@ -123,7 +124,7 @@ function initCarousel() {
 
 function initGallery() {
   const grid = document.querySelector('[data-gallery-grid]');
-  if (!grid || typeof PHOTOS === 'undefined') return;
+  if (!grid) return;
 
   grid.innerHTML = PHOTOS.map((p, i) => {
     const { title, sub } = splitCaption(p.caption);

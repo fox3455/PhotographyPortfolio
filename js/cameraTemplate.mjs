@@ -10,7 +10,7 @@ async function getJSON(url) {
 }
 
 async function getCameraSpecs(cameraNames) {
-  const cameraData = await getJSON('data/camera_data.json');
+  const cameraData = await getJSON('data/my_cameras.json');
   return cameraNames
     .map(name => {
       const match = cameraData.find(c => c.Model === name);
@@ -54,5 +54,6 @@ export async function renderCameraInfo(cameraNames, lighting = 'Off-camera flash
     container.innerHTML = cameraInfoTemplate(bodies, lenses, lighting);
   } catch (err) {
     console.error(err);
+    container.textContent = 'Gear list is unavailable right now.';
   }
 }

@@ -5,13 +5,13 @@
 // expected filename so you know exactly what's missing.
 // ---------------------------------------------------------------------------
 
-const CATEGORIES = {
+export const CATEGORIES = {
   hcs: 'Halo Championship Series',
   comiccon: 'Comic-Con',
   dreamhack: 'DreamHack',
 };
 
-const PHOTOS = [
+export const PHOTOS = [
   { file: 'hcs-01.jpg', category: 'hcs', caption: 'HCS Charlotte, 2023 — SuperCC closeup' },
   { file: 'hcs-02.jpg', category: 'hcs', caption: 'HCS World Championship, 2025 — Trainer Frosty works Ron out' },
   { file: 'hcs-03.jpg', category: 'hcs', caption: 'HCS World Championship, 2025 — Fallen shreds the guitar' },
