@@ -21,6 +21,17 @@
   border-radius: 6px;
 }
 
+/* Whole date field opens the calendar (see initDateField), so show a pointer. */
+.contact-form input[type="date"],
+.contact-form input[type="date"]::-webkit-calendar-picker-indicator {
+  cursor: pointer;
+}
+
+/* Only flag a field after the visitor has interacted with it. */
+.contact-form :is(input, select, textarea):user-invalid {
+  border-color: #e5484d;
+}
+
 .contact-form button {
   justify-self: stretch;
   margin-top: 24px;

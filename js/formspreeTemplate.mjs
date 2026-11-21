@@ -22,6 +22,36 @@ function save(key, value) {
   }
 }
 
+// Today's date as "YYYY-MM-DD" in the visitor's own timezone.
+// (toISOString() would use UTC and can be off by a day in the evening.)
+function todayISO() {
+  const d = new Date();
+  const pad = (n) => String(n).padStart(2, '0');
+  return `${d.getFullYear()}-${pad(d.getMonth() + 1)}-${pad(d.getDate())}`;
+}
+
+// Event date: no past dates, a friendly error message, and clicking
+// anywhere in the field opens the calendar (not just the small icon).
+function initDateField(input) {
+  if (!input) return;
+  input.min = todayISO();
+
+  // A saved draft from an earlier visit may hold a date that has now passed.
+  if (input.value && input.value < input.min) input.value = '';
+
+  const check = () => {
+    input.setCustomValidity(
+      input.validity.rangeUnderflow ? 'Please choose today or a future date.' : ''
+    );
+  };
+  input.addEventListener('input', check);
+  input.addEventListener('change', check);
+
+  input.addEventListener('click', () => {
+    try { input.showPicker(); } catch { /* unsupported browser: native behavior */ }
+  });
+}
+
 export function initContactForm() {
   const form = document.querySelector('#contact-form');
   if (!form) return;
@@ -39,6 +69,7 @@ export function initContactForm() {
     }
   }
   form.addEventListener('input', () => save(DRAFT_KEY, formValues()));
+  initDateField(form.elements.eventDate);
 
   const last = load(LAST_KEY);
   if (last) {

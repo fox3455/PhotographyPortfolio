@@ -1,4 +1,7 @@
 {
+  "scripts": {
+    "start": "npx serve ."
+  },
   "dependencies": {
     "exifr": "^7.1.3"
   }
