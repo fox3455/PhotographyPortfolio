@@ -5,6 +5,7 @@
 @import "home.css";
 @import "gallery.css";
 @import "exif.css";
+@import "about.css";
 
 /**************************************************
    Featured carousel
@@ -17,7 +18,9 @@
   max-width: 640px;
   margin: 0 auto 48px;
 }
-.section-heading p { color: var(--color-muted); }
+.section-heading p {
+  color: var(--color-muted);
+}
 
 .carousel {
   position: relative;
@@ -62,10 +65,12 @@ Caption + location bottom-left, EXIF stack bottom-right, one gradient.
 .carousel-caption,
 .lightbox-caption {
   position: absolute;
-  left: 0; right: 0; bottom: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
   /* taller top padding = longer, softer fade; right padding leaves room for EXIF */
   padding: 72px 45% 28px 32px;
-  background: linear-gradient(to top, rgba(0,0,0,0.75), transparent);
+  background: linear-gradient(to top, rgba(0, 0, 0, 0.75), transparent);
   color: #fff;
 }
 .cap-title {
@@ -76,7 +81,7 @@ Caption + location bottom-left, EXIF stack bottom-right, one gradient.
 }
 .cap-sub {
   font-size: 0.9rem;
-  color: rgba(255,255,255,0.75);
+  color: rgba(255, 255, 255, 0.75);
 }
 
 /**************************************************
@@ -97,7 +102,7 @@ Shares the caption's bottom/right padding so both blocks sit on the same baselin
   text-align: right;
   font-size: 0.9rem;
   line-height: 1.4;
-  color: rgba(255,255,255,0.75);
+  color: rgba(255, 255, 255, 0.75);
 }
 .carousel-slide .exif-body,
 .lightbox .exif-body {
@@ -109,12 +114,21 @@ Shares the caption's bottom/right padding so both blocks sit on the same baselin
 
 @media (max-width: 600px) {
   .carousel-caption,
-  .lightbox-caption { padding: 56px 40% 16px 16px; }
-  .cap-title { font-size: 1rem; }
+  .lightbox-caption {
+    padding: 56px 40% 16px 16px;
+  }
+  .cap-title {
+    font-size: 1rem;
+  }
   .carousel-slide .exif,
-  .lightbox .exif { padding: 0 16px 16px 0; font-size: 0.75rem; }
+  .lightbox .exif {
+    padding: 0 16px 16px 0;
+    font-size: 0.75rem;
+  }
   .carousel-slide .exif-body,
-  .lightbox .exif-body { font-size: 0.85rem; }
+  .lightbox .exif-body {
+    font-size: 0.85rem;
+  }
 }
 
 .carousel-arrow {
@@ -124,8 +138,8 @@ Shares the caption's bottom/right padding so both blocks sit on the same baselin
   width: 44px;
   height: 44px;
   border-radius: 50%;
-  border: 1px solid rgba(255,255,255,0.25);
-  background: rgba(10,10,15,0.5);
+  border: 1px solid rgba(255, 255, 255, 0.25);
+  background: rgba(10, 10, 15, 0.5);
   backdrop-filter: blur(6px);
   color: #fff;
   font-size: 1.2rem;
@@ -134,11 +148,20 @@ Shares the caption's bottom/right padding so both blocks sit on the same baselin
   justify-content: center;
   cursor: pointer;
   z-index: 5;
-  transition: background var(--transition), border-color var(--transition);
+  transition:
+    background var(--transition),
+    border-color var(--transition);
 }
-.carousel-arrow:hover { background: rgba(0,0,0,0.7); border-color: var(--color-accent); }
-.carousel-arrow.prev { left: 16px; }
-.carousel-arrow.next { right: 16px; }
+.carousel-arrow:hover {
+  background: rgba(0, 0, 0, 0.7);
+  border-color: var(--color-accent);
+}
+.carousel-arrow.prev {
+  left: 16px;
+}
+.carousel-arrow.next {
+  right: 16px;
+}
 
 .carousel-dots {
   display: flex;
@@ -147,12 +170,18 @@ Shares the caption's bottom/right padding so both blocks sit on the same baselin
   margin-top: 20px;
 }
 .carousel-dot {
-  width: 9px; height: 9px;
+  width: 9px;
+  height: 9px;
   border-radius: 50%;
   background: var(--color-line);
   border: none;
   cursor: pointer;
   padding: 0;
-  transition: background var(--transition), transform var(--transition);
+  transition:
+    background var(--transition),
+    transform var(--transition);
 }
-.carousel-dot.active { background: var(--color-accent); transform: scale(1.2); }
+.carousel-dot.active {
+  background: var(--color-accent);
+  transform: scale(1.2);
+}

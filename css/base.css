@@ -32,3 +32,40 @@ img {
   width: min(100% - 32px, var(--max-width));
   margin-inline: auto;
 }
+
+.btn {
+  display: inline-block;
+  padding: 12px 24px;
+  border: 1px solid var(--color-line);
+  border-radius: var(--radius);
+  background: none;
+  color: var(--color-text);
+  font: inherit;
+  font-weight: 600;
+  text-decoration: none;
+  cursor: pointer;
+  transition:
+    border-color var(--transition),
+    background var(--transition);
+}
+
+.btn-primary {
+  background: var(--color-accent);
+  border-color: var(--color-accent);
+  color: var(--color-bg);
+}
+
+.btn:hover,
+.btn:focus-visible {
+  border-color: var(--color-accent);
+}
+
+.btn-primary:hover,
+.btn-primary:focus-visible {
+  background: color-mix(in srgb, var(--color-accent) 85%, white);
+}
+
+.btn:disabled {
+  opacity: 0.6;
+  cursor: wait;
+}
