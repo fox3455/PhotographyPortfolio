@@ -52,6 +52,31 @@ function initDateField(input) {
   });
 }
 
+// Message hint: shows a live "n / 500" count so visitors see the length
+// rules while typing instead of only after pressing submit. The count turns
+// the accent colour once the 20-character minimum is reached; maxlength stops
+// typing at 500. The count sits in its own span so the hint text read by
+// screen readers stays short and stable.
+function initMessageCounter(textarea) {
+  const hint = document.getElementById('message-hint');
+  if (!textarea || !hint) return;
+  const min = textarea.minLength;
+  const max = textarea.maxLength;
+  const count = document.createElement('span');
+  count.setAttribute('aria-hidden', 'true');
+  hint.append(' ', count);
+
+  const update = () => {
+    // Raw length, so the count always matches the browser's own minlength/maxlength checks.
+    const len = textarea.value.length;
+    count.textContent = `(${len} / ${max})`;
+    count.classList.toggle('count-met', len >= min);
+  };
+  textarea.addEventListener('input', update);
+  textarea.form?.addEventListener('reset', () => setTimeout(update));
+  update();
+}
+
 export function initContactForm() {
   const form = document.querySelector('#contact-form');
   if (!form) return;
@@ -70,6 +95,7 @@ export function initContactForm() {
   }
   form.addEventListener('input', () => save(DRAFT_KEY, formValues()));
   initDateField(form.elements.eventDate);
+  initMessageCounter(form.elements.message);
 
   const last = load(LAST_KEY);
   if (last) {

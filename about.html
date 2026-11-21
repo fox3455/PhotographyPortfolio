@@ -15,9 +15,9 @@
 
 <header class="site-header">
   <nav class="nav container">
-    <a href="index.html" class="brand">Caramon "Fox" Photography</a>
-    <button class="nav-toggle" aria-label="Toggle menu"><span></span><span></span><span></span></button>
-    <ul class="nav-links">
+    <a href="index.html" class="brand">Caramon "Fox" Photography<span>.</span></a>
+    <button class="nav-toggle" type="button" aria-label="Menu" aria-expanded="false" aria-controls="site-nav"><span></span><span></span><span></span></button>
+    <ul class="nav-links" id="site-nav">
       <li><a href="index.html">Home</a></li>
       <li><a href="gallery.html">Gallery</a></li>
       <li><a href="about.html" class="active">About &amp; Contact</a></li>
@@ -78,7 +78,8 @@
           <input id="cf-date" name="eventDate" type="date">
 
           <label for="message">Message</label>
-          <textarea id="message" name="message" rows="5" required minlength="20"></textarea>
+          <textarea id="message" name="message" rows="5" required minlength="20" maxlength="500" aria-describedby="message-hint"></textarea>
+          <p id="message-hint" class="field-hint">In 20–500 characters, tell me about the event, location, and what you need covered.</p>
 
           <input type="text" name="_gotcha" style="display:none" tabindex="-1" autocomplete="off">
 
@@ -86,8 +87,9 @@
           <p id="form-status" aria-live="polite"></p>
         </form>
 
+        <p class="contact-alt">Prefer email? Write to <a href="mailto:caramonstanley@gmail.com">caramonstanley@gmail.com</a>.</p>
+
         <div class="contact-links">
-          <a class="btn btn-primary" href="mailto:caramonstanley@gmail.com">Email Me</a>
           <a class="btn" href="https://instagram.com/fox3455" target="_blank" rel="noopener">Instagram</a>
           <a class="btn" href="https://twitter.com/f0x3455" target="_blank" rel="noopener">Twitter / X</a>
         </div>

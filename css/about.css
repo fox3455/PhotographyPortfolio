@@ -1,3 +1,113 @@
+/**************************************************
+ * About layout: portrait beside the text on wide screens,
+ * stacked on phones.
+ **************************************************/
+.about-layout {
+  display: grid;
+  gap: 48px;
+  align-items: start;
+  margin-bottom: 96px;
+}
+
+@media (min-width: 900px) {
+  .about-layout {
+    grid-template-columns: minmax(0, 2fr) minmax(0, 3fr);
+  }
+  .about-portrait {
+    position: sticky;
+    top: 132px; /* clears the 100px sticky header */
+  }
+}
+
+.about-portrait img {
+  width: 100%;
+  border-radius: var(--radius);
+  border: 1px solid var(--color-line);
+}
+
+@media (max-width: 899px) {
+  .about-portrait {
+    max-width: 420px;
+  }
+}
+
+.about-body h2 {
+  margin: 40px 0 12px;
+}
+
+.about-body h2:first-child {
+  margin-top: 0;
+}
+
+/* Label / value rows: "What I shoot" and the Gear list from JSON */
+.about-list {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+.about-list li {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  gap: 4px 16px;
+  padding: 10px 0;
+  border-bottom: 1px solid color-mix(in srgb, var(--color-line) 40%, transparent);
+}
+
+.about-list li span:first-child {
+  color: var(--color-muted);
+}
+
+.about-list li span:last-child {
+  text-align: right;
+}
+
+@media (max-width: 500px) {
+  .about-list li {
+    flex-direction: column;
+  }
+  .about-list li span:last-child {
+    text-align: left;
+  }
+}
+
+/**************************************************
+ * Contact panel
+ **************************************************/
+.contact-box {
+  margin-top: 48px;
+  padding: 32px;
+  background: var(--color-surface);
+  border: 1px solid var(--color-line);
+  border-radius: var(--radius);
+}
+
+.contact-box h3 {
+  margin: 0 0 8px;
+  font-size: 1.5rem;
+}
+
+.contact-box > p {
+  margin: 0 0 8px;
+  color: var(--color-muted);
+}
+
+.contact-links {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 12px;
+  margin-top: 32px;
+  padding-top: 24px;
+  border-top: 1px solid color-mix(in srgb, var(--color-line) 40%, transparent);
+}
+
+@media (max-width: 500px) {
+  .contact-box {
+    padding: 20px;
+  }
+}
+
 .contact-form {
   display: grid;
   gap: 6px;
@@ -16,7 +126,7 @@
   padding: 10px 12px;
   font: inherit;
   color: var(--color-text);
-  background: var(--color-surface);
+  background: var(--color-bg); /* contrasts with the .contact-box panel */
   border: 1px solid var(--color-line);
   border-radius: 6px;
 }
@@ -25,6 +135,32 @@
 .contact-form input[type="date"],
 .contact-form input[type="date"]::-webkit-calendar-picker-indicator {
   cursor: pointer;
+}
+
+.field-hint {
+  margin: 2px 0 0;
+  font-size: 0.875rem;
+  color: var(--color-muted);
+}
+
+.field-hint .count-met {
+  color: var(--color-accent);
+}
+
+/* Secondary contact route: a quiet text link, so the form stays the main action. */
+.contact-alt {
+  margin: 24px 0 0;
+  color: var(--color-muted);
+}
+
+.contact-alt a {
+  color: var(--color-text);
+  text-underline-offset: 3px;
+}
+
+.contact-alt a:hover,
+.contact-alt a:focus-visible {
+  color: var(--color-accent);
 }
 
 /* Only flag a field after the visitor has interacted with it. */

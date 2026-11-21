@@ -33,6 +33,35 @@ img {
   margin-inline: auto;
 }
 
+/* Small uppercase label above a heading */
+.eyebrow {
+  display: inline-block;
+  margin-bottom: 12px;
+  color: var(--color-accent);
+  font-size: 0.8rem;
+  font-weight: 600;
+  letter-spacing: 3px;
+  text-transform: uppercase;
+}
+
+/* Highlighted word inside a heading */
+.accent {
+  color: var(--color-accent);
+}
+
+/* Pill badge, e.g. "Esports" on the home cards */
+.tag {
+  display: inline-block;
+  padding: 3px 10px;
+  border: 1px solid var(--color-accent);
+  border-radius: 999px;
+  color: var(--color-accent);
+  font-size: 0.75rem;
+  font-weight: 600;
+  letter-spacing: 1px;
+  text-transform: uppercase;
+}
+
 .btn {
   display: inline-block;
   padding: 12px 24px;
